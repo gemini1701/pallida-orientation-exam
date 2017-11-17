@@ -1,8 +1,15 @@
 package com.greenfoxacademy.orientationexam.model;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-public class Car {
+public class LicencePlates {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    Long id;
 
     String plate;
     String car_brand;
@@ -10,15 +17,24 @@ public class Car {
     String color;
     String year;
 
-    public Car() {
+    public LicencePlates() {
     }
 
-    public Car(String plate, String car_brand, String car_model, String color, String year) {
+    public LicencePlates(Long id, String plate, String car_brand, String car_model, String color, String year) {
+        this.id = id;
         this.plate = plate;
         this.car_brand = car_brand;
         this.car_model = car_model;
         this.color = color;
         this.year = year;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getPlate() {
